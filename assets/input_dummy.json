@@ -1,0 +1,12 @@
+{"dummy_input_configuration" :{
+  "AGENDA": "Market survey on the Italian and French automobile industry, focusing on consumer purchase points of view and expectations regarding luxury vs. necessity.",
+  "INDUSTRY": "Automobile",
+  "NUMBER_OF_QUESTIONS": 10,
+  "QUESTION_EMOTION": "Polite, friendly, engaging (with light banter)",
+  "NUMBER_OF_OPEN_ENDED_QUESTIONS": 2,
+  "NUMBER_OF_MCQ_QUESTIONS": 8,
+  "TARGET_AUDIENCE": "Automobile consumers, customers, and enthusiasts in Italy and France",
+  "EXPECTED_COMPLETION_TIME_MINUTES": "5-7",
+  "LOGICAL_QUESTION_FLOW": "Yes, start general (e.g., passion), then move to specifics (e.g., purchasing, luxury vs. necessity)."
+}
+}

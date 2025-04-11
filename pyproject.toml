@@ -1,0 +1,34 @@
+[project]
+name = "theform-backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+
+[tool.ruff]
+# Set your desired line length; 88 is common (same as Black)
+line-length = 88
+
+# Optionally configure sections that control formatting (if needed)
+[tool.ruff.format]
+# Enable reformatting docstring code if you wish (optional)
+docstring-code-format = true
+
+[tool.ruff.lint]
+# Extend the default set of linting rules; for example, include import sorting (I) and pydocstyle (D) rules.
+extend-select = ["I", "D"]
+# You may also choose to ignore specific errors (like E402 which is common when imports are not at the top).
+extend-ignore = ["E402"]
+# If you don’t want Ruff to auto‑fix certain types of issues (e.g., unused imports), you can list them as unfixable.
+unfixable = ["F401"]
+
+# Example: Configure pydocstyle settings
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.5",
+]
