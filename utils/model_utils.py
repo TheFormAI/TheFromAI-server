@@ -1,14 +1,17 @@
 from enum import Enum
+from typing import Any, Dict, List, Optional, Tuple, Union
+
 from pydantic import BaseModel
-from typing import Dict, Any, Union, List, Optional, Tuple
 
 
-def get_usage_cost(completion_config,model_config):
+def get_usage_cost(completion_config, model_config):
     inp_tokens = completion_config.prompt_tokens
     out_tokens = completion_config.completion_tokens
 
-    total_cost = (inp_tokens*model_config["input_cost"])+(out_tokens*model_config["output_cost"])
-    return round(total_cost,4)
+    total_cost = (inp_tokens * model_config["input_cost"]) + (
+        out_tokens * model_config["output_cost"]
+    )
+    return round(total_cost, 4)
 
 
 class QuestionType(Enum):
@@ -40,22 +43,8 @@ class Form(BaseModel):
     questions_list: List[FormModel]
 
 
-async def get_tailored_form(client:Any,
-                      config: Dict[str,Any],
-                      system_prompt: str, 
-                      input_data: Dict[str,Any]) -> Tuple[Form, float]:
-    completion = await client.beta.chat.completions.parse(model=config["model"],
-                                                    messages=[{"role": "system", "content": system_prompt},
-                                                              {"role": "user", "content": f"here is your form configuration: {input_data}"},],
-                                                    response_format=Form,)
-    # response_out = completion.choices[0].message.parsed
-    # per_request_cost = get_usage_cost(completion_config=completion.usage,
-    #                                   model_config=config)
-
-    return completion
-
 def parse_results(response_out: Form):
-    outputs_final = {"questions":[]}
+    outputs_final = {"questions": []}
     questions_generated = response_out.questions_list
     for q in questions_generated:
         q = q.model_dump()
