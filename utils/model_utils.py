@@ -31,11 +31,39 @@ class QuestionType(Enum):
     PHONE = "phone"
     ADDRESS = "address"
 
+class WidgetType(Enum):
+    CHECKBOX = "checkbox"
+    RADIO_GROUP = "radio_group"
+    TOGGLE = "toggle"
+    DATETIME = "datetime"
+    FILE_DROPZONE = "file_dropzone"
+    NUMERIC = "numeric"
+    DECIMAL = "decimal"
+    CURRENCY = "currency"
+    PERCENT = "percent"
+    URL = "url"
+    COUNTRY_SELECT = "country_select"
+    STATE_SELECT = "state_select"
+    CITY_SELECT = "city_select"
+    ZIP_CODE = "zip_code"
+    COLOR_PICKER = "color_picker"
+    SLIDER = "slider"
+    SOCIAL_MEDIA = "social_media"
+    TAGS = "tags"
+    CAPTCHA = "captcha"
+    LANGUAGE_SELECT = "language_select"
+    TIMEZONE_SELECT = "timezone_select"
+    RANKING = "ranking"
+    OPINION_SCALE = "opinion_scale"
+    STAR_RATING = "star_rating"
+    EMOJI_RATING = "emoji_rating"
+
 
 class FormModel(BaseModel):
     question_text: str
     question_type: QuestionType
     is_required: bool
+    widget_type: Optional[Union[WidgetType,None]] = None
     options: Optional[List[str]] = None
 
 

@@ -14,7 +14,7 @@ from utils.model_utils import Form, get_usage_cost, parse_results
 load_dotenv()
 OPENAI_KEY = os.environ.get("OPENAI_KEY")
 client = AsyncOpenAI(api_key=OPENAI_KEY)
-config = llm_model_configs["gpt-4o-mini"]
+config = llm_model_configs["gpt-4.1-mini-2025-04-14"]
 # input_data = json.load(open("assets/input_dummy.json","r"))["dummy_input_configuration"]
 
 app = FastAPI()
