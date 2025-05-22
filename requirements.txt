@@ -2,3 +2,4 @@ python-dotenv
 fastapi
 openai>=0.27.0
 starlette
+pydantic
