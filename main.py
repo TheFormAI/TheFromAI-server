@@ -20,8 +20,10 @@ config = llm_model_configs["gpt-4.1-mini-2025-04-14"]
 app = FastAPI()
 
 origins = [
-    "http://localhost",
-    "http://localhost:3000",  # If using React frontend,  # Your production domain
+    # "http://localhost",
+    # "http://localhost:3000",
+    "https://theform.ai/",
+    "https://theformai.vercel.app/",
 ]
 
 app.add_middleware(
